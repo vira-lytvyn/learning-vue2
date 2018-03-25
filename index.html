@@ -6,7 +6,18 @@
 </head>
 <body>
   <main id="root">
-
+    <section>
+      <h1>All TODOs:</h1>
+      <ul>
+        <li v-for="task in tasks" v-text="task.description"></li>
+      </ul>
+    </section>
+    <section>
+      <h1>Incomplete TODOs:</h1>
+      <ul>
+        <li v-for="task in incompleteTasks" v-text="task.description"></li>
+      </ul>
+    </section>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -14,7 +25,19 @@
     var app = new Vue({
       el: '#root',
       data: {
-        
+        tasks: [
+          {description: 'Commit step 6', completed: false},
+          {description: 'Complete step 6 Homework', completed: false},
+          {description: 'Prepare coffee', completed: true},
+          {description: 'Complete the puzzle', completed: false},
+          {description: 'Take a brake', completed: false},
+          {description: 'Eat cheese', completed: true}
+        ]
+      },
+      computed: {
+        incompleteTasks() {
+          return this.tasks.filter(task => !task.completed);
+        }
       }
     });
 
