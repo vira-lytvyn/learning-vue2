@@ -6,8 +6,7 @@
 </head>
 <body>
   <main id="root">
-    <button @click="toggleAvailability">Toggle availability of the other button</button>
-    <button :disabled="isDisabled">My availability depends on your action :(</button>
+
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -15,12 +14,7 @@
     var app = new Vue({
       el: '#root',
       data: {
-        isDisabled: true
-      },
-      methods: {
-        toggleAvailability() {
-          this.isDisabled = !this.isDisabled;
-        }
+        
       }
     });
 
