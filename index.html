@@ -6,14 +6,18 @@
 </head>
 <body>
   <main id="root">
-
+    <ul>
+      <li v-for="name in names" v-text="name"></li>
+    </ul>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script>
     new Vue({
       el: '#root',
-      data: {}
+      data: {
+        names: ['John', 'Mary', 'Jack', 'Mark']
+      }
     });
   </script>
 </body>
