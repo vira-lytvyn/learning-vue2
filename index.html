@@ -3,19 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>Learning Vue2: Step by Step</title>
+  <style>
+    main {
+      display: flex;
+    }
+    section {
+      margin: 10px;
+    }
+  </style>
 </head>
 <body>
   <main id="root">
     <section>
       <h1>All TODOs:</h1>
       <ul>
-        <li v-for="task in tasks" v-text="task.description"></li>
+        <li v-for="task in tasks">
+          <label>
+            <input type="checkbox" v-model="task.completed">
+            {{task.description}}
+          </label>
+        </li>
       </ul>
     </section>
     <section>
-      <h1>Incomplete TODOs:</h1>
+      <h1>Incompleted TODOs:</h1>
       <ul>
-        <li v-for="task in incompleteTasks" v-text="task.description"></li>
+        <li v-for="task in incompletedTasks" v-text="task.description"></li>
+      </ul>
+    </section>
+    <section>
+      <h1>Completed TODOs:</h1>
+      <ul>
+        <li v-for="task in completedTasks" v-text="task.description"></li>
       </ul>
     </section>
   </main>
@@ -35,8 +54,11 @@
         ]
       },
       computed: {
-        incompleteTasks() {
+        incompletedTasks() {
           return this.tasks.filter(task => !task.completed);
+        },
+        completedTasks() {
+          return this.tasks.filter(task => task.completed);
         }
       }
     });
