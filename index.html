@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Learning Vue2: Step by Step</title>
+  <meta charset="UTF-8">
+  <title>Learning Vue2: Step by Step</title>
 </head>
 <body>
-	
+  <main id="root">
+    <section>
+      <h1>All TODOs:</h1>
+      <ul>
+        <task v-for="task in tasks" v-text="task.description"></task>
+      </ul>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
