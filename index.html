@@ -3,15 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Learning Vue2: Step by Step</title>
-  <style>
-    .is-loading {
-      color: yellow;
-    }
-  </style>
 </head>
 <body>
   <main id="root">
-    <button :class="{'is-loading': isLoading}" @click="setLoading">Click me</button>
+    <button @click="toggleAvailability">Toggle availability of the other button</button>
+    <button :disabled="isDisabled">My availability depends on your action :(</button>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
@@ -19,11 +15,11 @@
     var app = new Vue({
       el: '#root',
       data: {
-        isLoading: false
+        isDisabled: true
       },
       methods: {
-        setLoading() {
-          this.isLoading = !this.isLoading;
+        toggleAvailability() {
+          this.isDisabled = !this.isDisabled;
         }
       }
     });
